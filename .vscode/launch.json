@@ -1,0 +1,69 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "program": "${workspaceFolder}${pathSeparator}build${pathSeparator}debug${pathSeparator}program",
+            "name": "Build and debug main file",
+            "cwd": "${workspaceFolder}${pathSeparator}source",
+            "MIMode": "gdb",
+            "request": "launch",
+            "type": "cppdbg",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Build debug"
+        },
+        {
+            "program": "${workspaceFolder}${pathSeparator}build${pathSeparator}debug${pathSeparator}program",
+            "name": "Build and debug main file in external console",
+            "externalConsole": true,
+            "cwd": "${workspaceFolder}${pathSeparator}source",
+            "MIMode": "gdb",
+            "request": "launch",
+            "type": "cppdbg",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Build debug"
+        },
+        {
+            "program": "${workspaceFolder}${pathSeparator}build${pathSeparator}debug${pathSeparator}program",
+            "name": "Debug existing build",
+            "cwd": "${workspaceFolder}${pathSeparator}source",
+            "MIMode": "gdb",
+            "request": "launch",
+            "type": "cppdbg",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "program": "${workspaceFolder}${pathSeparator}build${pathSeparator}debug${pathSeparator}program",
+            "name": "Debug existing build in external console",
+            "externalConsole": true,
+            "cwd": "${workspaceFolder}${pathSeparator}source",
+            "MIMode": "gdb",
+            "request": "launch",
+            "type": "cppdbg",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

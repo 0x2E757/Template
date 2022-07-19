@@ -1,0 +1,106 @@
+{
+	"version": "2.0.0",
+	"presentation": {
+		"panel": "dedicated",
+		"reveal": "always",
+		"focus": true,
+		"clear": true,
+		"showReuseMessage": false,
+		"close": false
+	},
+	"tasks": [
+		{
+			"label": "Setup debug build",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"-S .",
+				"-B build${pathSeparator}debug",
+				"-D CMAKE_BUILD_TYPE=Debug",
+				"-D CMAKE_CXX_FLAGS='-ffile-prefix-map=${workspaceFolder}${pathSeparator}source${pathSeparator}='"
+			],
+			"windows": {
+				"options": {
+					"shell": {
+						"executable": "cmd",
+						"args": [
+							"/c",
+							".scripts\\taskfix.bat"
+						]
+					}
+				}
+			}
+		},
+		{
+			"label": "Setup release build",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"-S .",
+				"-B build${pathSeparator}release",
+				"-D CMAKE_BUILD_TYPE=Release",
+				"-D CMAKE_CXX_FLAGS='-ffile-prefix-map=${workspaceFolder}${pathSeparator}source${pathSeparator}='"
+			],
+			"windows": {
+				"options": {
+					"shell": {
+						"executable": "cmd",
+						"args": [
+							"/c",
+							".scripts\\taskfix.bat"
+						]
+					}
+				}
+			}
+		},
+		{
+			"label": "Build debug",
+			"type": "shell",
+			"group": "build",
+			"problemMatcher": "$gcc",
+			"command": "cmake --build build${pathSeparator}debug"
+		},
+		{
+			"label": "Build release",
+			"type": "shell",
+			"group": "build",
+			"problemMatcher": "$gcc",
+			"command": "cmake --build build${pathSeparator}release"
+		},
+		{
+			"label": "Run debug",
+			"type": "shell",
+			"command": "build${pathSeparator}debug${pathSeparator}program"
+		},
+		{
+			"label": "Run release",
+			"type": "shell",
+			"command": "build${pathSeparator}release${pathSeparator}program"
+		},
+		{
+			"label": "Build and run debug",
+			"type": "shell",
+			"group": "build",
+			"dependsOn": [
+				"Build debug",
+				"Run debug"
+			],
+			"dependsOrder": "sequence"
+		},
+		{
+			"label": "Build and run release",
+			"type": "shell",
+			"group": "build",
+			"dependsOn": [
+				"Build release",
+				"Run release"
+			],
+			"dependsOrder": "sequence"
+		},
+		{
+			"label": "Clean project",
+			"type": "shell",
+			"command": "git clean -ffxd"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "default",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64",
+            "includePath": [
+                "${workspaceFolder}${pathSeparator}include",
+                "${workspaceFolder}${pathSeparator}extern${pathSeparator}**"
+            ]
+        }
+    ],
+    "version": 4
+}
