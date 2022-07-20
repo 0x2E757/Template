@@ -42,7 +42,7 @@ if(dependencies_last_index GREATER 0)
 
                 # Create external using git clone
                 execute_process(COMMAND git clone ${dependency_repository} "${CMAKE_SOURCE_DIR}/extern/${dependency_name}" --quiet COMMAND_ERROR_IS_FATAL ANY)
-                if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+                if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
                     message("-- Cloned ${dependency_name} to extern")
                 else()
                     message("-- Cloned ${dependency_name} (by ${PROJECT_NAME}) to extern")
@@ -72,4 +72,13 @@ if(dependencies_last_index GREATER 0)
         target_link_libraries(${PROJECT_NAME} PRIVATE ${dependency_name})
 
     endforeach()
+endif()
+
+# Extending compiler flags with -ffile-prefix-map
+if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffile-prefix-map=\"${CMAKE_CURRENT_SOURCE_DIR}/include/\"=")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffile-prefix-map=\"${CMAKE_CURRENT_SOURCE_DIR}/source/\"=")
+else()
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffile-prefix-map=\"${CMAKE_CURRENT_SOURCE_DIR}/include/\"=${PROJECT_NAME}/")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffile-prefix-map=\"${CMAKE_CURRENT_SOURCE_DIR}/source/\"=${PROJECT_NAME}/")
 endif()

@@ -12,46 +12,12 @@
 		{
 			"label": "Setup debug build",
 			"type": "shell",
-			"command": "cmake",
-			"args": [
-				"-S .",
-				"-B build${pathSeparator}debug",
-				"-D CMAKE_BUILD_TYPE=Debug",
-				"-D CMAKE_CXX_FLAGS='-ffile-prefix-map=${workspaceFolder}${pathSeparator}source${pathSeparator}='"
-			],
-			"windows": {
-				"options": {
-					"shell": {
-						"executable": "cmd",
-						"args": [
-							"/c",
-							".scripts\\taskfix.bat"
-						]
-					}
-				}
-			}
+			"command": "cmake -S . -B build${pathSeparator}debug -D CMAKE_BUILD_TYPE=Debug"
 		},
 		{
 			"label": "Setup release build",
 			"type": "shell",
-			"command": "cmake",
-			"args": [
-				"-S .",
-				"-B build${pathSeparator}release",
-				"-D CMAKE_BUILD_TYPE=Release",
-				"-D CMAKE_CXX_FLAGS='-ffile-prefix-map=${workspaceFolder}${pathSeparator}source${pathSeparator}='"
-			],
-			"windows": {
-				"options": {
-					"shell": {
-						"executable": "cmd",
-						"args": [
-							"/c",
-							".scripts\\taskfix.bat"
-						]
-					}
-				}
-			}
+			"command": "cmake -S . -B build${pathSeparator}release -D CMAKE_BUILD_TYPE=Release"
 		},
 		{
 			"label": "Build debug",
