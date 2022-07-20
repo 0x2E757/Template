@@ -10,7 +10,7 @@ Several Visual Studio Code extensions are optional but highly recommended to bui
 
 ### Initialize CMake
 
-First of all, you need to initialize CMake. This is done using command `cmake -S . --build build` or using Visual Studio Code task `Setup debug build` or `Setup release build`.
+First of all, you need to initialize CMake. This is done using command `cmake -S . -B build` or using Visual Studio Code task `Setup debug build` or `Setup release build`.
 
 ### Build project
 
