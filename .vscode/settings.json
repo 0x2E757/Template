@@ -1,4 +1,5 @@
 {
+    "editor.detectIndentation": false,
     "C_Cpp.default.cppStandard": "c++17",
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
     "explorer.excludeGitIgnore": true,
@@ -35,6 +36,9 @@
         "**/.scripts": true
     },
     "files.associations": {
+        "*.hxx": "cpp",
+        "*.txx": "cpp",
+        "*.cxx": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
         "array": "cpp",

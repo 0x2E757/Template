@@ -23,6 +23,7 @@ else()
     add_library(${PROJECT_NAME} ${headers} ${sources})
 endif()
 target_include_directories(${PROJECT_NAME} PRIVATE "include")
+set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 
 # Iterate dependencies
 list(LENGTH dependencies dependencies_length)
