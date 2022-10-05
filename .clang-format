@@ -32,7 +32,7 @@ AttributeMacros: []
 BinPackArguments: true
 BinPackParameters: true
 BitFieldColonSpacing: Both
-BreakBeforeBraces: Attach
+BreakBeforeBraces: Custom
 BraceWrapping:
   AfterCaseLabel: false
   AfterClass: false
